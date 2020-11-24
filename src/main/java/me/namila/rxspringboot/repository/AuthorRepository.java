@@ -1,10 +1,11 @@
 package me.namila.rxspringboot.repository;
 
 import me.namila.rxspringboot.model.Author;
-import org.springframework.data.repository.reactive.RxJava2CrudRepository;
 import org.springframework.stereotype.Repository;
 
+/**
+ * The interface Author repository.
+ */
 @Repository
-public interface AuthorRepository extends RxJava2CrudRepository<Author, String>, AuthorCustomRepository {
-
+public interface AuthorRepository extends GenericRepository<Author, String> {
 }

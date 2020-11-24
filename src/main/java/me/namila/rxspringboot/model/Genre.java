@@ -25,11 +25,16 @@ public class Genre {
   private String name;
 
   @JsonIgnore
-  private ArrayList<Book> bookArrayList;
+  private ArrayList<Book> bookArrayList = new ArrayList<>();
 
   @CreatedDate
   private Date createdAt;
 
   @LastModifiedDate
   private Date lastModifiedDate;
+
+  public void setBookArrayList(ArrayList<Book> bookArrayList) {
+    this.bookArrayList.clear();
+    this.bookArrayList.addAll(bookArrayList);
+  }
 }

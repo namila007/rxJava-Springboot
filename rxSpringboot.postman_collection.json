@@ -1,0 +1,266 @@
+{
+  "info": {
+    "_postman_id": "cd6b7ad3-7c1c-4dfe-95fc-6fa2df4e9de6",
+    "name": "rxSpringboot",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Post Author",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"test5\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/v1/author",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "author"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Author by Id",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/v1/author/5fbaa854c6520e11ec4aa74e",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "author",
+            "5fbaa854c6520e11ec4aa74e"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get all Author",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/v1/author",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "author"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Author by name",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/v1/author/name/test4",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "author",
+            "name",
+            "test4"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Author by Id",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/v1/author/5fbb926644dc0531c1c64de5",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "author",
+            "5fbb926644dc0531c1c64de5"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Post Book 1",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Harry Potter\",\n    \"isbn\": \"abcdefgs\",\n    \"author\": {\n        \"name\":\"test776\"\n    },\n    \"genre\" : {\n        \"name\": \"testGenre\"\n    }\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/v1/book",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "book"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Post Book w/ Id",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Harry Potter\",\n    \"isbn\": \"abcdefgdsfs\",\n    \"author\": {\n        \"id\": \"c0e8009d-47b6-457c-8a50-df20d3c67bf1\"\n    },\n    \"genre\" : {\n       \"id\": \"8149b449-a218-496e-a529-aaf8b165d569\"\n    }\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/v1/book",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "book"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get all Books",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/v1/book",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "v1",
+            "book"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "protocolProfileBehavior": {}
+}
