@@ -7,36 +7,76 @@ import me.namila.rxspringboot.repository.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * The type Author service.
+ */
 @Service
-public class AuthorService {
+public class AuthorService extends GenericServiceImpl<Author, String> {
 
-  private AuthorRepository authorRepository;
-
-  public Single<Author> createAuthor(Author author) {
-    return Single.create(sub -> {
-      try {
-        if (Boolean.FALSE.equals(authorRepository.existsByName(author.getName()).blockingGet())) {
-          authorRepository.save(author).subscribe(sub::onSuccess, sub::onError);
-        } else {
-          sub.onError(new RuntimeException("Author is already registered"));
-        }
-
-      } catch (Exception e) {
-        sub.onError(e);
-      }
-    });
+  /**
+   * Instantiates a new Author service.
+   */
+  public AuthorService() {
+    super(Author.class, String.class);
   }
 
+  /**
+   * Create author single.
+   *
+   * @param author the author
+   * @return the single
+   */
+  public Single<Author> createAuthor(Author author) {
+    return create(author);
+  }
+
+  /**
+   * Gets author by id.
+   *
+   * @param id the id
+   * @return the author by id
+   */
+  public Single<Author> getAuthorById(String id) {
+    return getById(id);
+  }
+
+  /**
+   * Gets all authors.
+   *
+   * @return the all authors
+   */
+  public Single<List<Author>> getAllAuthors() {
+    return getAll();
+  }
+
+  /**
+   * Find author by name single.
+   *
+   * @param name the name
+   * @return the single
+   */
+  public Single<Author> findAuthorByName(String name) {
+    return getByName(name).onErrorResumeNext(v -> Single.error(new RuntimeException("Author not found")));
+  }
+
+  /**
+   * Delete author by id single.
+   *
+   * @param id the id
+   * @return the single
+   */
+  // ToDO : completable error handle using single
+  public Single<String> deleteAuthorById(String id) {
+    return deleteById(id);
+  }
+
+  /**
+   * Sets author repository.
+   *
+   * @param authorRepository the author repository
+   */
   @Autowired
   public void setAuthorRepository(AuthorRepository authorRepository) {
-    this.authorRepository = authorRepository;
-  }
-
-  public Single<Author> getAuthorById(String id) {
-    return authorRepository.findById(id).toSingle();
-  }
-
-  public Single<List<Author>> getAllAuthors() {
-    return authorRepository.findAll().toList();
+    this.setRepository(authorRepository);
   }
 }
